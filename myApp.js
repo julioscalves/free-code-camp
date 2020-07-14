@@ -17,7 +17,9 @@ var app = express();              // Do Not Edit
 // Express apps by setting various HTTP headers.
 // Install the package, then require it.
 
+const helmet = require('helmet')
 
+app.use(helmet())
 
 /** 2) Hide potentially dangerous information - `helmet.hidePoweredBy()` */
 
@@ -46,7 +48,7 @@ var app = express();              // Do Not Edit
 // We don't need our app to be framed, so you should use `helmet.frameguard()`
 // passing to it the configuration object `{action: 'deny'}`
 
- 
+
 
 /** 4) Mitigate the risk of XSS - `helmet.xssFilter()` */
 
@@ -113,7 +115,6 @@ var app = express();              // Do Not Edit
 // set the field `force` to `true` in the config object. To not alter hyperdev security 
 // policy we will intercept and restore the header, after inspecting it for testing.
 
-var ninetyDaysInSeconds = 90*24*60*60;
 
 
 //**Note**:
@@ -174,7 +175,6 @@ var ninetyDaysInSeconds = 90*24*60*60;
 // **Hint**: 
 // in the `"'self'"` keyword, the single quotes are part of the keyword itself, 
 // so it needs to be enclosed in **double quotes** to be working.
-
 
 
 /** TIP: */ 
